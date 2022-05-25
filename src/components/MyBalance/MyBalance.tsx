@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import logo from '../../imgs/logo.svg';
 
 export const StyledDiv = styled.div`
-  width: 100%;
   height: auto;
   padding: 20px 30px;
   border-radius: 15px;
