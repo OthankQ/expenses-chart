@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Container } from './components/Container/Container';
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello there!</h1>
+      <Container />
     </div>
   );
 }
