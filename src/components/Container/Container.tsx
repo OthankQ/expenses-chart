@@ -7,25 +7,29 @@ import { Main } from '../Main/Main';
 import Data from '../../data/data.json';
 
 export const StyledContainer = styled.div`
-  width: 33vw;
+  width: 420px;
   min-width: 300px;
   height: auto;
   display: flex;
   gap: 20px;
   flex-direction: column;
   margin: 100px auto;
+  @media (max-width: 480px) {
+    width: 90vw;
+  }
+  hr {
+    border-top: 1px solid grey;
+  }
 `;
 
 export class Container extends React.Component<{}, {}> {
-  componentDidMount() {
-    console.log(Data);
-  }
+  componentDidMount() {}
 
   render() {
     return (
       <StyledContainer>
         <MyBalance balance={921.48} />
-        <Main />
+        <Main data={Data} />
       </StyledContainer>
     );
   }
