@@ -14,15 +14,17 @@ export const StyledContainer = styled.div`
     color: hsl(28, 10%, 53%);
     background-color: hsl(33, 100%, 98%);
   }
+  .today {
+    background-color: hsl(186, 34%, 60%);
+  }
 `;
 
 export const StyledBar = styled.div`
   height: 70px;
-  width: 30px;
+  width: 35px;
   background-color: hsl(10, 79%, 65%);
   border-radius: 4px;
   :hover {
-    background-color: hsl(186, 34%, 60%);
     cursor: pointer;
   }
 `;
@@ -65,6 +67,8 @@ export class Bar extends React.Component<BarProps, BarState> {
           <span>${this.props.data.amount}</span>
         </StyledTooltip>
         <StyledBar
+          className={this.props.data.day === 'wed' ? 'today' : ''}
+          style={{ height: (this.props.data.amount / 51) * 100 }}
           onMouseEnter={(e) => {
             this.setState({ displayValue: '100' });
           }}

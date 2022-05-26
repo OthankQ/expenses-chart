@@ -25,7 +25,7 @@ export const StyledDiv = styled.div`
     color: hsl(25, 47%, 15%);
   }
   hr {
-    border-top: 0.5px solid hsl(28, 10%, 90%);
+    border-top: 3px solid hsl(28, 10%, 99%);
     width: 100%;
     margin-bottom: 30px;
   }

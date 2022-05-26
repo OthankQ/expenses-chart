@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { Bar } from '../Bar/Bar';
@@ -17,20 +17,12 @@ type ChartViewProps = {
 };
 
 export class ChartView extends React.Component<ChartViewProps, {}> {
-  componentDidMount() {
-    console.log(this.props.data);
-  }
-
   render() {
     return (
       <StyledDiv>
-        <Bar data={this.props.data[0]} />
-        <Bar data={this.props.data[1]} />
-        <Bar data={this.props.data[2]} />
-        <Bar data={this.props.data[3]} />
-        <Bar data={this.props.data[4]} />
-        <Bar data={this.props.data[5]} />
-        <Bar data={this.props.data[6]} />
+        {this.props.data.map((data): ReactElement => {
+          return <Bar data={data} key={data.day} />;
+        })}
       </StyledDiv>
     );
   }

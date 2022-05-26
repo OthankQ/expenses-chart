@@ -49,19 +49,43 @@ type MonthSummaryProps = {
   data: { day: string; amount: number }[];
 };
 
-export class MonthSummary extends React.Component<MonthSummaryProps, {}> {
-  componentDidMount() {}
+type MonthSummaryState = {
+  total: number;
+};
 
+export class MonthSummary extends React.Component<
+  MonthSummaryProps,
+  MonthSummaryState
+> {
+  constructor(props: MonthSummaryProps) {
+    super(props);
+
+    this.state = {
+      total: 0,
+    };
+  }
+
+  componentDidMount() {
+    this.setState(() => {
+      let monthTotal = 0;
+      this.props.data.forEach((data) => {
+        monthTotal += data.amount;
+      });
+      return {
+        total: monthTotal,
+      };
+    });
+  }
   render() {
     return (
       <StyledDiv>
         <div className="left">
-          <p>Total this month</p>
-          <h2>${478.33}</h2>
+          <p>Total this week</p>
+          <h2>${this.state.total}</h2>
         </div>
         <div className="right">
           <span>+2.4%</span>
-          <p>from last month</p>
+          <p>from last week</p>
         </div>
       </StyledDiv>
     );

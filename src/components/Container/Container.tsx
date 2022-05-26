@@ -8,7 +8,7 @@ import Data from '../../data/data.json';
 
 export const StyledContainer = styled.div`
   width: 420px;
-  min-width: 300px;
+  min-width: 400px;
   height: auto;
   display: flex;
   gap: 20px;
